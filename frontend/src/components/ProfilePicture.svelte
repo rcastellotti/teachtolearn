@@ -37,7 +37,7 @@
 	}
 </script>
 
-<input id="upload-photo" bind:this={input} on:change={update} disabled={!$usernameStore?.length > 0} type="file" />
+<input id="upload-photo" bind:this={input} on:change={update} disabled={$usernameStore?.length == 0} type="file" />
 {#if isPropicPresentOnS3}
 	<div class="mx-auto group relative h-16 w-16 md:w-24 md:h-24 rounded-full bg-black cursor-pointer">
 		<!-- picture is updated whenever a file is uploaded clientside -->
