@@ -65,7 +65,7 @@ test:
                     S3_API_URL=$S3_API_URL
                     S3_ACCESS_KEY=$S3_ACCESS_KEY
                     S3_SECRET_KEY=$S3_SECRET_KEY
-                    pytest  /app/tests"
+                    pytest -vv /app/tests"
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       changes:
