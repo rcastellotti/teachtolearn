@@ -1,6 +1,6 @@
 <script context="module">
 	import { apiSignUp } from '$src/api.js';
-	import { successMessage, errorMessage, usernameStore } from '$src/stores';
+	import { successMessage, errorMessage, usernameStore, isPropicPresentOnS3 } from '$src/stores';
 	import ProfilePicture from '$components/ProfilePicture.svelte';
 	import { goto } from '$app/navigation';
 	export async function load({ session }) {
@@ -101,7 +101,7 @@
 		<div class="flex justify-between items-center py-2">
 			<h1 class="text-2xl  font-bold">sign up</h1>
 			<div>
-				<ProfilePicture />
+				<!-- <ProfilePicture /> -->
 			</div>
 		</div>
 		<label class="font-bold" for="email">e-mail</label>

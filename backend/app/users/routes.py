@@ -67,6 +67,7 @@ def signUp():
         try:
             client.get_object(S3_BUCKET, schema["username"])
         except S3Error as e:
+            print("siamo qua")
             a.logger.exception(e)
             r = requests.get(
                 f"https://eu.ui-avatars.com/api/?name={fullname}&background=random"
