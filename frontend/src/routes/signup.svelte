@@ -1,6 +1,6 @@
 <script context="module">
 	import { apiSignUp } from '$src/api.js';
-	import { successMessage, errorMessage, usernameStore, isPropicPresentOnS3 } from '$src/stores';
+	import { successMessage, errorMessage, usernameStore } from '$src/stores';
 	import ProfilePicture from '$components/ProfilePicture.svelte';
 	import { goto } from '$app/navigation';
 	export async function load({ session }) {
