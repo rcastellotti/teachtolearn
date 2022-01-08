@@ -56,6 +56,7 @@ test:
     S3_BUCKET: $S3_BUCKET
     FLASK_ENV: $FLASK_ENV
   script:
+    - echo $S3_API_URL
     - apk update && apk add postgresql
     - pip3 install pytest testing.postgresql
     - adduser -D test
