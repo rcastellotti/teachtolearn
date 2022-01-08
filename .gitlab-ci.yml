@@ -67,6 +67,6 @@ test:
                     S3_SECRET_KEY=$S3_SECRET_KEY
                     pytest  /app/tests"
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    # - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       changes:
       - backend/app/*
