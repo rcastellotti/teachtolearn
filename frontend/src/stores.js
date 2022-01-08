@@ -10,3 +10,4 @@ export const successMessage = writable(null);
 export const infoMessage = writable(null);
 export const usernameStore = writable(null);
 export const searchTerm = writable(null);
+export const propicUrl = writable('');

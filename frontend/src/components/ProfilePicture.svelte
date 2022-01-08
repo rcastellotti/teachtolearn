@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { usernameStore, isPropicPresentOnS3, propicUrl, debug } from '$src/stores';
 	import { apiGetPresignedUrl } from '$src/api';
 
@@ -40,4 +40,4 @@
 	input {
 		display: none;
 	}
-</style>
+</style> -->
