@@ -1,0 +1,72 @@
+format:
+  stage: .pre
+  image:
+    name: python:3.9
+  script:
+    - pip install black
+    - black backend --check
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+build-frontend:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR/frontend
+                       --dockerfile $CI_PROJECT_DIR/frontend/Dockerfile
+                       --destination $CI_REGISTRY_IMAGE/frontend:$CI_COMMIT_SHORT_SHA
+
+build-backend:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR/backend 
+                       --dockerfile $CI_PROJECT_DIR/backend/Dockerfile 
+                       --destination $CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHORT_SHA
+
+build-slidev:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR/slidev 
+                       --dockerfile $CI_PROJECT_DIR/slidev/Dockerfile 
+                       --destination $CI_REGISTRY_IMAGE/slidev:$CI_COMMIT_SHORT_SHA
+
+
+test:
+  stage: test
+  image:
+    name: registry.gitlab.com/rcastellotti/teachtolearn/backend:$CI_COMMIT_SHORT_SHA
+  variables:
+    JWT_SECRET: $JWT_SECRET
+    S3_API_URL: $S3_API_URL
+    S3_ACCESS_KEY: $S3_ACCESS_KEY
+    S3_SECRET_KEY: $S3_SECRET_KEY
+    S3_BUCKET: $S3_BUCKET
+    FLASK_ENV: $FLASK_ENV
+  script:
+    - apk update && apk add postgresql
+    - pip3 install pytest testing.postgresql
+    - adduser -D test
+    - su - test -c "S3_BUCKET=$S3_BUCKET
+                    FLASK_ENV=$FLASK_ENV
+                    JWT_SECRET=$JWT_SECRET
+                    S3_API_URL=$S3_API_URL
+                    S3_ACCESS_KEY=$S3_ACCESS_KEY
+                    S3_SECRET_KEY=$S3_SECRET_KEY
+                    pytest  /app/tests"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+      - backend/app/*

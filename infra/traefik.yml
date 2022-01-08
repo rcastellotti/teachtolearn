@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  traefik:
+    restart: always
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "$PWD/traefik.toml:/traefik.toml"
+      - "$PWD/traefik_dynamic.toml:/traefik_dynamic.toml"
+      - "$PWD/acme.json:/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    network_mode: teachtolearn
+    container_name: teachtolearn-traefik
+    image: "traefik:latest"

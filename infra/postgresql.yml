@@ -1,0 +1,10 @@
+version: "3"
+services:
+  database:
+    image: postgres:14.0-alpine
+    network_mode: "host"
+    environment:
+      POSTGRES_DB: "ttl"
+      POSTGRES_USER: "teachtolearn"
+      POSTGRES_PASSWORD: "postgresqlpassword"
+    restart: always

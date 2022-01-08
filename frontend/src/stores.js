@@ -1,0 +1,13 @@
+import { writable } from 'svelte/store';
+export const activeTabCourses = writable('list');
+export const activeTabCourse = writable('lectures');
+export const activeTabMyCourse = writable('lectures');
+export const activeTabSearch = writable('courses');
+export const showModal = writable(false);
+export const debug = writable('');
+export const errorMessage = writable(null);
+export const successMessage = writable(null);
+export const infoMessage = writable(null);
+export const usernameStore = writable(null);
+export const searchTerm = writable(null);
+export const propicUrl = writable('');

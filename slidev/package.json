@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export",
+    "serve": "serve dist/"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.27.20",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*",
+    "serve": "^13.0.2"
+  },
+  "name": "slidev",
+  "devDependencies": {
+    "@iconify-json/ci": "^1.0.1",
+    "@iconify-json/emojione": "^1.0.2",
+    "@iconify-json/emojione-v1": "^1.0.1",
+    "@iconify-json/entypo": "^1.0.1",
+    "@iconify-json/file-icons": "^1.0.1",
+    "@iconify-json/fluent": "^1.0.12",
+    "@iconify-json/logos": "^1.0.2",
+    "@iconify-json/simple-icons": "^1.0.14",
+    "@iconify-json/tabler": "^1.0.10",
+    "@iconify-json/vscode-icons": "^1.0.3"
+  }
+}
