@@ -7,7 +7,6 @@
 		errorMessage,
 		successMessage,
 		infoMessage,
-		propicUrl,
 		usernameStore
 	} from '$src/stores';
 	import { apiLogout } from '$src/api';
@@ -20,7 +19,6 @@
 
 	let showDebug = false;
 	let showMenuMobile = false;
-	$propicUrl = `${variables.s3Url}${$session?.profile?.username}`;
 	$debug = JSON.stringify($session?.profile, null, 2);
 	$usernameStore = $session?.profile?.username;
 	$: isUserLoggedIn = !!$session?.profile?.username;

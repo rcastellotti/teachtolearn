@@ -3,10 +3,9 @@
 	import { clickOutside } from '$src/utils.js';
 	import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
-	import { variables } from '$src/variables.js';
+	import ProfilePicture from '$components/ProfilePicture.svelte';
 
 	let showDropdownProfile = false;
-	const propicUrl = `${variables.s3Url}${$session.profile.username}`;
 	export let routes, showMenuMobile;
 
 	function logout() {
@@ -27,7 +26,7 @@
 		showDropdownProfile = !showDropdownProfile;
 	}}
 >
-	<img class="rounded-full h-8 w-8" src={propicUrl} alt="propic" />
+	<ProfilePicture size=8 md_size=8 fullname={$session.profile.fullname} />
 </button>
 
 {#if showDropdownProfile}

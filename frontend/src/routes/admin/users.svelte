@@ -1,7 +1,6 @@
 <script context="module">
 	import { successMessage, errorMessage, debug, showModal } from '$src/stores';
 	import { apiAdminGetUsers, apiBanUser, apiunBanUser } from '$src/api';
-	import { variables } from '$src/variables';
 	import Modal from '$components/Modal.svelte';
 
 	export async function load() {
@@ -15,6 +14,9 @@
 </script>
 
 <script>
+	import ProfilePicture from '$components/ProfilePicture.svelte';
+
+
 	function banUser(id, i) {
 		apiBanUser(id).then((response) => {
 			if (response.ok) {
@@ -83,12 +85,8 @@
 							<tr class="even:bg-gray-100 hover:bg-gray-100 border">
 								<td class="p-2 w-1/3 whitespace-nowrap text-center">
 									<div class="flex items-center">
-										<div class="flex-shrink-0 h-6 w-6">
-											<img
-												class="h-6 w-6 rounded-full"
-												src="{variables.s3Url}{user.username}"
-												alt=""
-											/>
+										<div class="flex-shrink-0 h-8 w-8">
+											<ProfilePicture size=8 md_size=8 fullname={user.fullname} />
 										</div>
 										<div class="ml-2 text-left">
 											<div class=" text-sm font-medium text-gray-900">

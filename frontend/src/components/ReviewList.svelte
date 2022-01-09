@@ -1,9 +1,9 @@
 <script>
-	import { variables } from '$src/variables';
 	import { successMessage, errorMessage, showModal } from '$src/stores';
 	import { apiDeleteReview } from '$src/api';
 	import Modal from '$components/Modal.svelte';
 	import { session } from '$app/stores';
+	import ProfilePicture from '$components/ProfilePicture.svelte';
 
 	export let reviews;
 
@@ -25,13 +25,7 @@
 		<li class="bg-white px-2 flex-col py-1 w-full flex gap-x-2 items-start rounded">
 			<div class=" flex flex-col w-full">
 				<div class="flex items-start gap-x-2 w-full">
-					<img
-						src={review.reviewer.fullname == '[deleted user]'
-							? 'https://eu.ui-avatars.com/api/?name=X&background=121212&color=F3F3F3'
-							: `${variables.s3Url}${review.reviewer.username}`}
-						class="w-10 h-10 rounded-full"
-						alt=""
-					/>
+					<ProfilePicture size=10 md_size=10 fullname={review.reviewer.fullname} />
 					<div class="flex flex-col w-full">
 						<div class="flex w-full justify-between">
 							{#if review.reviewer.fullname != '[deleted user]'}

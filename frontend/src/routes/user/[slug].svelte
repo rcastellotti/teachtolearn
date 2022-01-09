@@ -1,7 +1,7 @@
 <script context="module">
 	import { apiGetUserCourses, apiGetPublicProfile } from '$src/api';
-	import { variables } from '$src/variables';
 	import { debug } from '$src/stores';
+	import ProfilePicture from '$components/ProfilePicture.svelte';
 
 	export async function load({ page }) {
 		let user = apiGetPublicProfile(page.params.slug);
@@ -25,7 +25,6 @@
 	export let user, courses;
 	user = user.msg.profile;
 	courses = courses.msg.courses;
-	const propicUrl = `${variables.s3Url}${user.username}`;
 
 	$debug = `${JSON.stringify(user, null, 2)}\n${JSON.stringify(courses, null, 2)}`;
 </script>
@@ -45,11 +44,11 @@
 					<div class=" text-gray-500">{user.fullname}</div>
 					<div><a class="hover:underline" href="mailto:{user.email}">{user.email}</a></div>
 				</div>
-				<img class="rounded-lg w-16 h-16 border border-gray-600" src={propicUrl} alt="propic" />
+				<ProfilePicture size=16 md_size=18 fullname={user.fullname} />
 			</div>
 			<div class="text-gray-500">{user.bio}</div>
 		</div>
-		{#if courses}
+		{#if courses?.length}
 			<h2 class="font-semibold">Courses created by the user</h2>
 			<ul class="pt-2 divide-y divide-gray-800">
 				{#each courses as course}

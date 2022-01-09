@@ -1,5 +1,5 @@
 <script context="module">
-	import { activeTabCourse, debug, successMessage, errorMessage, propicUrl } from '$src/stores';
+	import { activeTabCourse, debug, successMessage, errorMessage } from '$src/stores';
 	import { page } from '$app/stores';
 	import {
 		apiGetCourse,
@@ -40,7 +40,7 @@
 	import CourseShowcase from '$components/CourseShowcase.svelte';
 	import LectureTable from '$components/LectureTable.svelte';
 	import ReviewList from '$components/ReviewList.svelte';
-
+	import ProfilePicture from '$components/ProfilePicture.svelte';
 	import { session } from '$app/stores';
 
 	export let course, reviews, reservationState;
@@ -169,7 +169,7 @@
 					{#if userCanPostReview}
 						<div class="p-2 flex flex-col  gap-y-1 w-full mx-auto rounded ">
 							<div class="flex w-full gap-x-2 items-start">
-								<img src={$propicUrl} class="w-10 h-10 rounded-full" alt="" />
+								<ProfilePicture size=10 md_size=10 fullname={$session.profile.fullname} />
 								<textarea
 									maxlength="1024"
 									rows="5"

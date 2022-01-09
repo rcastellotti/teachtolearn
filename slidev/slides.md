@@ -48,7 +48,6 @@ Here is a list of libraries/tools/services we are using
 - <vscode-icons-file-type-svelte/> - Frontend [Sveltekit](https://kit.svelte.dev) and [Svelte](https://svelte.dev)
 - <vscode-icons-file-type-gitlab/> - [GitLab](https://gitlab.com) as code hosting / CI-CD tool / container registry
 - <carbon-email/> - [Sendgrid](https://sendgrid.com) to send emails
-- <entypo-bucket/> - [min.io](https://min.io) an high performance, S3 compatible, distributed object storage system.
 
 -  <span class="flex"> <img class="w-4 mr-2" src="/traefik.png"> - <span class="mx-2">[Traefik](https://traefik.io)</span> a high performance cloud-native reverse proxy and loadbalancer. </span>
 
@@ -68,7 +67,6 @@ flask-cors = "*"
 marshmallow = "*"
 pyjwt = "*"
 sendgrid = "*"
-minio = "*"
 cryptography = "*"
 nanoid = "*"
 pygments = "*"

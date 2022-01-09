@@ -9,10 +9,6 @@ def required_env_var(name):
 
 
 FLASK_ENV = required_env_var("FLASK_ENV")
-S3_API_URL = required_env_var("S3_API_URL")
-S3_ACCESS_KEY = required_env_var("S3_ACCESS_KEY")
-S3_SECRET_KEY = required_env_var("S3_SECRET_KEY")
-S3_BUCKET = required_env_var("S3_BUCKET")
 JWT_SECRET = required_env_var("JWT_SECRET")
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 IS_PROD = FLASK_ENV == "production"
