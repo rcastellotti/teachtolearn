@@ -49,7 +49,7 @@
 			</div>
 			<div class="text-gray-500">{user.bio}</div>
 		</div>
-		{#if courses}
+		{#if courses.length}
 			<h2 class="font-semibold">Courses created by the user</h2>
 			<ul class="pt-2 divide-y divide-gray-800">
 				{#each courses as course}

@@ -2,7 +2,7 @@
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-# Development
+## Development
 
 A `docker-compose-dev.yml` is provided, to use it simply run
 
@@ -28,7 +28,7 @@ However to experience hot reload we highly suggest to run natively
    npm run dev -- --open
    ```
 
-# testing
+## testing
 
 Pytest is used to test backend, to run tests:
 
@@ -42,15 +42,15 @@ Run test and get coverage report (from backend folder):
 pytest --cov-config=.coveragerc --cov=. --cov-report=html
 ```
 
-# Enviroment variables
+## Enviroment variables
 
 In production the only config needed is `.env.prod`, make sure to create it by editing `.env.prod.sample`.
 
 `SENDGRID_API_KEY` is [Sengrid](https://sendgrid.com)'s api key, make sure to get one and follow instructions to authenticate your sender domain.
 
-# Infrastructure
+## Infrastructure
 
-## s3
+### s3
 
 User profile pictures are stored on an instance of [min.io](https://min.io/), an high performance, S3 compatible, distributed object storage system.
 
@@ -64,7 +64,7 @@ mc admin policy add s3 policy infra/s3policy.json
 mc admin policy set s3 policy user=<user>
 ```
 
-## GitLab runner
+### GitLab runner
 
 Docker images are built in CI, jobs are picked up by a self-hosted [runner](https://docs.gitlab.com/runner/).
 
@@ -92,7 +92,7 @@ gitlab-runner \
     --registration-token <GITLAB_TOKEN> \
 ```
 
-# misc
+## misc
 
 - `docker-compose-prod.yml` assumes an external network was created by running `docker network create web` and a fully configured [traefik](https://traefik.com) instance to route traffic.
 
