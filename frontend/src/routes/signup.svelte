@@ -101,7 +101,7 @@
 		<div class="flex justify-between items-center py-2">
 			<h1 class="text-2xl  font-bold">sign up</h1>
 			<div>
-				<ProfilePicture />
+				<!-- <ProfilePicture /> -->
 			</div>
 		</div>
 		<label class="font-bold" for="email">e-mail</label>
