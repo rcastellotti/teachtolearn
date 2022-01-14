@@ -21,10 +21,10 @@
 			})
 			.then((response) => {
 				if (responseStatus == 200) {
-					$successMessage = response;
+					$successMessage = response.msg;
 					return;
 				}
-				$errorMessage = response;
+				$errorMessage = response.msg;
 			});
 	}
 </script>

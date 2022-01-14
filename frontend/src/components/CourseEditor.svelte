@@ -1621,16 +1621,8 @@
 				if (responseStatus == 200) {
 					$successMessage = response.msg;
 					course = response.course;
-					name = '';
-					abbreviation = '';
-					syllabus = '';
-					maxStudents = 1;
-					icon = '';
 					showLocations = false;
 					showIcons = false;
-					latitude = '';
-					longitude = '';
-					locationSearchTerm = '';
 					return;
 				}
 				$errorMessage = response.msg;
@@ -1669,6 +1661,8 @@
 				if (responseStatus == 200) {
 					$successMessage = response.msg;
 					course = response.course;
+					showLocations = false;
+					showIcons = false;
 					return;
 				}
 				$errorMessage = response.msg;

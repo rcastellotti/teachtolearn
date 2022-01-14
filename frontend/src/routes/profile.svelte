@@ -2,7 +2,6 @@
 	import { session } from '$app/stores';
 	import { apiUpdateProfile } from '$src/api.js';
 	import { successMessage, errorMessage, debug, showModal } from '$src/stores';
-	import ProfilePicture from '$components/ProfilePicture.svelte';
 	import ModalPassword from '$components/ModalPassword.svelte';
 
 	export async function load({ session }) {
@@ -50,10 +49,10 @@
 			})
 			.then((response) => {
 				if (responseStatus == 200) {
-					$successMessage = response;
+					$successMessage = response.msg;
 					return;
 				}
-				$errorMessage = response;
+				$errorMessage = response.msg;
 			});
 	}
 
@@ -73,9 +72,6 @@
 	<div class="text-sm bg-gray-100 mx-auto md:w-5/12 rounded pb-5 px-5">
 		<div class="flex justify-between items-center py-2">
 			<h1 class="text-2xl  font-bold">edit profile</h1>
-			<div>
-				<!-- <ProfilePicture /> -->
-			</div>
 		</div>
 		<label class="font-bold" for="email"> e-mail </label>
 		<input

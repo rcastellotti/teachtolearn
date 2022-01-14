@@ -22,10 +22,10 @@
 			.then((response) => {
 				loading = false;
 				if (responseStatus == 200) {
-					$infoMessage = response;
+					$infoMessage = response.msg;
 					return;
 				}
-				$errorMessage = response;
+				$errorMessage = response.msg;
 			});
 	}
 </script>
