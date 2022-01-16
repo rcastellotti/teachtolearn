@@ -1,6 +1,6 @@
 export const variables = {
     environment: "production",
-    s3Url: "http://s3.rcastellotti.dev/ttl-dev/",
+    s3Url: "http://s3.rcastellotti.dev/ttl/",
     apiUrl: "https://teachtolearn.club/api/",
     // s3Url: "http://192.168.1.201:9000/ttl-dev/",
     // apiUrl: "http://192.168.1.201:5000/api/",

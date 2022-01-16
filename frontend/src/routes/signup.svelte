@@ -190,7 +190,7 @@
 			rows="5"
 			class="bg-white rounded border p-1 w-full"
 			bind:value={bio}
-			placeholder="if you feel like it, insert a short bio"
+			placeholder="insert a short bio"
 		/>
 		<div class="flex items-center justify-between mt-2">
 			<a class="font-bold  hover:underline" href="/signin"> signin </a>
