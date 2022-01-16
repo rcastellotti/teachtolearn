@@ -6,15 +6,15 @@ services:
     container_name: teachtolearn-db
     restart: always
     volumes:
-      - ./database:/var/lib/postgresql/data 
       - ./backend/init.sql:/docker-entrypoint-initdb.d/00-init.sql
+      - ./database:/var/lib/postgresql/data 
     env_file:
       - .env.prod
     networks:
       - web
 
   backend:
-    image: registry.gitlab.com/rcastellotti/teachtolearn/backend:latest
+    image: registry.gitlab.com/rcastellotti/teachtolearn/backend:4af6f033
     container_name: teachtolearn-backend
     env_file:
       - .env.prod
@@ -35,7 +35,7 @@ services:
       - traefik.port=13001
 
   frontend:
-    image: registry.gitlab.com/rcastellotti/teachtolearn/frontend:latest
+    image: registry.gitlab.com/rcastellotti/teachtolearn/frontend:4af6f033
     container_name: teachtolearn-frontend
     restart: always
     command: "node build"
@@ -52,7 +52,7 @@ services:
       - traefik.port=13000
   
   slides:
-    image: registry.gitlab.com/rcastellotti/teachtolearn/slidev:latest
+    image: registry.gitlab.com/rcastellotti/teachtolearn/slidev:4af6f033
     container_name: teachtolearn-slides
     ports:
       - 8889:3000

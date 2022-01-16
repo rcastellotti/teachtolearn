@@ -1,29 +1,3 @@
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 14.0
--- Dumped by pg_dump version 14.0
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-DROP DATABASE IF EXISTS ttl;
---
--- Name: ttl; Type: DATABASE; Schema: -; Owner: teachtolearn
---
-
-CREATE DATABASE ttl WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.utf8';
-
-
 ALTER DATABASE ttl OWNER TO teachtolearn;
 
 \connect ttl
@@ -1355,7 +1329,7 @@ BTzPOIiC	wSWBg3yl	r7oQ_psX3MYZU3RcUSW7c6noQZix1j9M4bDu	Mac OS X	127.0.0.1	2022-0
 
 COPY public.users (id, username, email, "passwordHash", bio, fullname, "isActive", "isAdmin", "isBanned", "isDeleted") FROM stdin;
 PgcTBcqM	fabifont	s4891185@studenti.unige.it	pbkdf2:sha256:260000$MOh4gr7FmMxbjcgX$61c320872db9d56c6b0bc3e25ec8aaf4e65e0bfa5d6195753b3d318541151597	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.	Fabio Fontana	t	f	f	f
-eWPDXgQ3	rcastellotti	me@rcastellotti.dev	pbkdf2:sha256:260000$oWlHDiEEOHQVIUYN$b426733bd8e79ee822e29f5fba06f15e0b81e9b49364e6981731654d9511aec1	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.	Roberto Castellotti	t	f	f	f
+eWPDXgQ3	rcastellotti	me@rcastellotti.dev	pbkdf2:sha256:260000$kHIuPXLePpSAPdB0$c01dac617034663a5c2c8b9753e2ba3a370107a09f8b4200acd00ee2c4ace853	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.	Roberto Castellotti	t	f	f	f
 SYjiwdB1	federico_fontana	s4835118@studenti.fakeunige.it	pbkdf2:sha256:260000$Jj25o43b7O4fXMwF$f7f794a9a33180f2f298cde4161e06e537f7e5c93476cc528727a10af1e38b17	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.	Federico Fontana	t	f	f	f
 s7MN51Nd	edsger_dijkstra	edsger_dijkstra@fakeunige.it	pbkdf2:sha256:260000$Io2icIExthnziCAK$a29bd23d1e0da75f042829799bfcf11b497eb9565bcb1bb981f1cc3d7decec3f	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.	Edsger Dijkstra	t	f	f	f
 wSWBg3yl	armon_dadgar	armon_dadgar@fakeunige.it	pbkdf2:sha256:260000$idHGPoAGntCKnpju$740e9db301cc4dc14d780e3f65e84aaaff175aa496ab20d5ca1c7fa81cdaad10	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.	Armon Dagdar	t	f	f	f
