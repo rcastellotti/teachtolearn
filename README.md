@@ -99,3 +99,5 @@ gitlab-runner \
 - Python dependencies are managed using [Pipenv](https://pipenv.pypa.io/en/latest/), to lock dependencies for prodcution use `pipenv lock -r > requirements.txt`
 
 - promote a user to admin using `flask promote --u <USERNAME>`
+
+- debug database `docker exec -it teachtolearn-db psql -d ttl -U teachtolearn`
