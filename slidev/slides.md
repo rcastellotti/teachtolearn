@@ -178,8 +178,6 @@ class Course(db.Model):
 
 # security
 
-Here is a list of possible improvements:
-
 - <emojione-v1-cookie/> - [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) are: `sameSite` (CSRF-proof),`secure` (https only),`httpOnly` (no js allowed)
 
 - <fluent-password-24-regular/> + <tabler-salt/> passwords are stored hashed with a salt using
