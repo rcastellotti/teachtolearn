@@ -5,7 +5,7 @@
 <div class="h-full flex flex-col justify-center">
 	<div class="flex flex-col  items-center  text-gray-700 font-bold">
 		<div class="text-2xl md:text-5xl">
-			<p>Some things can't be thaught.</p>
+			<p>Some things can't be taught.</p>
 			<p>for everything else,</p>
 			<p>there's <a class="text-blue-500 hover:underline" href="/">teachtolearn.club</a></p>
 		</div>

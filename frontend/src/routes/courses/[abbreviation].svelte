@@ -53,7 +53,7 @@
 	$: userCanPostReview = (() => {
 		if (!$session?.profile?.username) return false;
 
-		let userIsTheTeacher = $session.profile.username !== course.teacher.username;
+		let userIsTheTeacher = $session.profile.username === course.teacher.username;
 		let userHasAlreadyReviewed = reviews.filter(
 			(review) => review.reviewer.username === $session.profile.username
 		).length;
@@ -62,7 +62,7 @@
 			course?.beginDate && new Date(course.beginDate) < new Date(new Date().toLocaleDateString());
 
 		return (
-			reservationState.status && userIsTheTeacher && !userHasAlreadyReviewed && courseHasStarted
+			reservationState.status && !userIsTheTeacher && !userHasAlreadyReviewed && courseHasStarted
 		);
 	})();
 
@@ -144,7 +144,7 @@
 	</title>
 </svelte:head>
 
-<div class="flex flex-col h-full justify-center">
+<div class="mx-auto h-full pt-10">
 	<div class="bg-gray-100 p-5 flex-col rounded">
 		<CourseShowcase {course} />
 		<div>
@@ -167,7 +167,7 @@
 			{:else}
 				<div class="mx-auto flex flex-col items-center w-full mb-2">
 					{#if userCanPostReview}
-						<div class="p-2 flex flex-col  gap-y-1 w-full mx-auto rounded ">
+						<div class="p-2 flex flex-col gap-y-1 w-full mx-auto rounded">
 							<div class="flex w-full gap-x-2 items-start">
 								<img src={$propicUrl} class="w-10 h-10 rounded-full" alt="" />
 								<textarea
