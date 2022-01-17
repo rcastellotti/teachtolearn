@@ -9,6 +9,8 @@
 	let showSearchResults = false;
 	let isSearchOnFocus = false;
 
+	export let showMenuMobile;
+
 	async function search(searchTerm) {
 		if (!searchTerm.trim()) {
 			courses = users = [];
@@ -37,7 +39,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class=" z-10 flex flex-col relative">
+<div class="z-10 flex flex-col relative">
 	<div class="flex">
 		<input
 			type="text"
@@ -56,6 +58,7 @@
 			disabled={searchTerm.trim() == ''}
 			on:click={() => {
 				courses = users = [];
+				showMenuMobile = false;
 				goto(`/search?q=${searchTerm}`);
 			}}
 			tabindex="-1"
@@ -83,6 +86,7 @@
 							on:click={() => {
 								searchTerm = course.name;
 								courses = users = [];
+								showMenuMobile = false;
 							}}
 							tabindex="0"
 							class="hover:bg-gray-200  focus:bg-gray-200 focus:outline-none p-1 border-b border-gray-500 border-dashed "
@@ -102,6 +106,7 @@
 							on:click={() => {
 								searchTerm = user.fullname;
 								courses = users = [];
+								showMenuMobile = false;
 							}}
 							tabindex="0"
 							class="hover:bg-gray-200  focus:bg-gray-200 focus:outline-none p-1 border-b border-gray-500 border-dashed"

@@ -143,7 +143,7 @@
 		<div class="h-full w-full flex flex-col justify-between">
 			<div class="w-11/12 mx-auto">
 				<div class="mx-auto my-3 flex-end">
-					<Search />
+					<Search bind:showMenuMobile={showMenuMobile}/>
 				</div>
 				<ul class="text-xl font-normal">
 					<li class="block border-b border-gray-300">
@@ -154,15 +154,15 @@
 						>
 					</li>
 
-					<li class="block border-b border-gray-300">
-						<a
-							on:click={() => (showMenuMobile = false)}
-							href="/courses/new"
-							class="block py-4 text-gray-600 hover:text-gray-900">add course</a
-						>
-					</li>
-
 					{#if isUserLoggedIn}
+						<li class="block border-b border-gray-300">
+							<a
+								on:click={() => (showMenuMobile = false)}
+								href="/courses/new"
+								class="block py-4 text-gray-600 hover:text-gray-900">add course</a
+							>
+						</li>
+
 						<li class="block border-b border-gray-300">
 							<a
 								on:click={() => (showMenuMobile = false)}

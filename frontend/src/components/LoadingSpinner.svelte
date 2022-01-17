@@ -1,5 +1,13 @@
+<script>
+	export let textColor = "white";
+	export let size = 5;
+</script>
+
+
+
+
 <svg
-	class="inline animate-spin h-5 w-5 text-white"
+	class="inline animate-spin h-{size} w-{size} text-{textColor}"
 	xmlns="http://www.w3.org/2000/svg"
 	fill="none"
 	viewBox="0 0 24 24"

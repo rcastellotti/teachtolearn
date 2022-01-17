@@ -75,7 +75,7 @@
 	</title>
 </svelte:head>
 
-<div class="flex flex-col h-full justify-center">
+<div class="mx-auto h-full pt-10">
 	<div class="bg-gray-100 flex-col rounded">
 		<CourseShowcase {course} />
 		<div>
